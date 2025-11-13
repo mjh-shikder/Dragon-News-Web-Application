@@ -5,7 +5,7 @@ import { FaLinkedin } from "react-icons/fa6";
 const FindUs = () => {
   return (
     <div>
-      <h2 className="font-semibold mb-5  ">Find Us on</h2>
+      <h2 className="font-semibold mb-5 text-lg  ">Find Us on</h2>
       <div>
         <div className="join join-vertical w-full ">
           <button className="btn bg-base-100 justify-start join-item"><FaFacebook size={23}></FaFacebook> Facebook</button>
