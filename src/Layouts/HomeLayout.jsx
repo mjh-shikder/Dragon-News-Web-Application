@@ -10,7 +10,7 @@ const HomeLayout = () => {
     return (
         <div>
             <header className='mt-10'>
-                <Header></Header>
+                    <Header></Header>
                 <section className='w-11/12 mx-auto my-3  '>
                     <LatestNews></LatestNews>
                 </section>
@@ -20,17 +20,15 @@ const HomeLayout = () => {
             </header>
             {/* Main */}
             <main className='w-11/12 mx-auto my-3 grid grid-cols-12  '>
-                <aside className='col-span-3 '>
+                <aside className='col-span-2 '>
                      <LeftAside></LeftAside>
                 </aside>
-
-                <section className='col-span-6 '>
+                <section className='col-span-8 '>
                     <Outlet></Outlet>
                 </section>
-                <aside className='col-span-3'>
+                <aside className='col-span-2'>
                      <RightAside></RightAside>
                 </aside>
-
             </main>
         </div>
     );
