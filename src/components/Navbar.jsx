@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import profileIcon from '../assets/user.png'
 const Navbar = () => {
     return (
@@ -12,7 +12,7 @@ const Navbar = () => {
             </div>
             <div className='login-btn flex space-x-3 '>
                 <img src={profileIcon} alt="" />
-                <button className='btn btn-primary rounded-lg px-7 '>Login</button>
+                <Link to={'/auth/login'} className='btn btn-primary rounded-lg px-7 '>Login</Link>
             </div>
         </div>
     );
