@@ -32,7 +32,7 @@ const router = createBrowserRouter(
                     element: <Login></Login>,
                 },
                 {
-                    path: 'auth/register',
+                    path: '/auth/register',
                     element: <Register></Register>,
                 }
             ]
