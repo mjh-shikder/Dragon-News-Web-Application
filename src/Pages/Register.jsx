@@ -1,39 +1,81 @@
-import React from 'react';
-import { Link } from 'react-router';
+import React from "react";
+import { Link } from "react-router";
 
 const Register = () => {
-    return (
-        <div className="">
+  const handleRegisiter = (e) => {
+    e.preventDefault();
+   
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const photo = form.photo.value;
+    const password = form.password.value;
+    console.log(name, email, photo, password);
+    
+    
+  };
+
+  return (
+    <div className="">
       <div className="flex justify-center ">
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <h2 className="text-2xl font-semibold text-center pt-10">
-            Login Your Account
+            Register Now
           </h2>
-          <div className="card-body">
+          <form onSubmit={handleRegisiter} className="card-body">
             <fieldset className="fieldset">
+              {/* Name */}
+              <label className="label">Name</label>
+              <input
+                name="name"
+                type="text"
+                className="input"
+                placeholder="Name"
+              />
+
+              {/* email */}
               <label className="label">Email</label>
-              <input type="email" className="input" placeholder="Email" />
+              <input
+                name="email"
+                type="email"
+                className="input"
+                placeholder="Email"
+              />
+              {/* Photo URL */}
+              <label className="label">Photo URL</label>
+              <input
+                name="photo"
+                type="email"
+                className="input"
+                placeholder="Photo URL"
+              />
+              {/* password */}
               <label className="label">Password</label>
-              <input type="password" className="input" placeholder="Password" />
-              <div>
-                <a className="link link-hover">Forgot password?</a>
-              </div>
-              <button className="btn btn-neutral mt-4">Register</button>
+              <input
+                name="password"
+                type="password"
+                className="input"
+                placeholder="Password"
+              />
+              <div></div>
+              <button type="submit" className="btn btn-neutral mt-4">
+                Register
+              </button>
               <p className="text-center font-light pt-5 ">
-                Already Have an Accout? Then 
+                Already Have an Accout? Then
                 <Link
                   className="text-secondary font-semibold hover:text-blue-800 hover:font-semibold"
                   to={"/auth/login"}
                 >
-                 <span> </span>Login
+                  <span> </span>Login
                 </Link>{" "}
               </p>
             </fieldset>
-          </div>
+          </form>
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default Register;
