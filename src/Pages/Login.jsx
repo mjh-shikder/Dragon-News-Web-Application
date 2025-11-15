@@ -1,7 +1,34 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
+
+  const {signin} = useContext(AuthContext)
+
+  const handleLogin = (e)=> {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    console.log({ email, password });
+    
+    signin(email, password)
+      .then(result => {
+        const user = result.user; 
+        console.log(user);
+        
+      })
+      .catch(error => {
+      const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorCode, errorMessage)
+    })
+    
+    
+  }
+
   return (
     <div className="">
       <div className="flex justify-center ">
@@ -9,16 +36,18 @@ const Login = () => {
           <h2 className="text-2xl font-semibold text-center pt-10">
             Login Your Account
           </h2>
-          <div className="card-body">
+          <form onSubmit={handleLogin} className="card-body">
             <fieldset className="fieldset">
+              {/* Email */}
               <label className="label">Email</label>
-              <input type="email" className="input" placeholder="Email" />
+              <input name="email" type="email" className="input" placeholder="Email" />
+              {/* password */}
               <label className="label">Password</label>
-              <input type="password" className="input" placeholder="Password" />
+              <input name="password" type="password" className="input" placeholder="Password" />
               <div>
                 <a className="link link-hover">Forgot password?</a>
               </div>
-              <button className="btn btn-neutral mt-4">Login</button>
+              <button type="submit" className="btn btn-neutral mt-4">Login</button>
               <p className="text-center font-light pt-5 ">
                 Don't Have an Accout? Then 
                 <Link
@@ -29,7 +58,7 @@ const Login = () => {
                 </Link>{" "}
               </p>
             </fieldset>
-          </div>
+          </form>
         </div>
       </div>
     </div>
