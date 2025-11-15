@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router";
 import profileIcon from "../assets/user.png";
-import { AuthContext } from "../Provider/AuthProvider";
+import { AuthContext } from "../Context/AuthProvider";
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
 
   const handleLogout = (e) => {
     logout()
       .then(() => {
-        alert('Loginout Successfully')
+        alert("Loginout Successfully");
       })
       .catch((error) => {
         // An error happened.

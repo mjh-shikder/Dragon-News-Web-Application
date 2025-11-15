@@ -1,6 +1,8 @@
 import React, { createContext, useEffect, useState } from "react";
 import app from "../Firebase/Firebase.config";
-export const AuthContext = createContext();
+
+export const AuthContext = createContext(null);
+
 import {
   createUserWithEmailAndPassword,
   getAuth,
@@ -12,22 +14,22 @@ import {
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  console.log(user);
+  // console.log(user);
 
-    // create user
+  // create user
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-    // logout 
+  // logout
   const logout = () => {
     return signOut(auth);
-    };
-    
-    // signin with gmial and password
-    const signin = (email, password) => {
-        return signInWithEmailAndPassword(auth, email, password);
-    }
+  };
+
+  // signin with gmial and password
+  const signin = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
