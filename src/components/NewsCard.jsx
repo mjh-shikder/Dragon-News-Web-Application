@@ -38,7 +38,7 @@ const NewsCard = ({ news }) => {
         </div>
 
         {/* News Content */}
-        <div className="card-body pt-2">
+        <Link to={`/news-details/${id}`} className="card-body pt-2">
           <h3 className="card-title text-lg font-bold text-gray-800">
             {title}
           </h3>
@@ -71,7 +71,7 @@ const NewsCard = ({ news }) => {
               <span>{total_view}</span>
             </div>
           </div>
-        </div>
+        </Link>
       </div>
     </div>
   );
