@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaGithub } from "react-icons/fa";
 import { FaGitAlt } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 
 const SocialLogin = () => {
+ 
   return (
     <div>
+       
       <h2 className="font-semibold mb-5 text-lg">Login With</h2>
       <div className="space-y-2.5 ">
         {/* Google */}
