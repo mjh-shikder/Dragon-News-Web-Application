@@ -5,6 +5,8 @@ import { Link } from "react-router";
 const NewsCard = ({ news }) => {
   const { title, rating, total_view, author, thumbnail_url, details, id } = news;
 
+ 
+
   return (
     <div>
       <div className="card bg-base-100 shadow-md border border-gray-200">
@@ -38,7 +40,8 @@ const NewsCard = ({ news }) => {
         </div>
 
         {/* News Content */}
-        <Link to={`/news-details/${id}`} className="card-body pt-2">
+        <Link to={`/news-details/${id}`}>
+        <div className="card-body pt-2">
           <h3 className="card-title text-lg font-bold text-gray-800">
             {title}
           </h3>
@@ -53,10 +56,10 @@ const NewsCard = ({ news }) => {
 
           <p className="text-gray-600 text-sm">
             {details.slice(0, 180)}...
-            <Link to={`/news-details/${id}`} className="text-primary font-medium cursor-pointer">
+            <span className="text-primary font-medium cursor-pointer">
               
               Read More
-            </Link>
+            </span>
           </p>
 
           {/* Footer */}
@@ -71,7 +74,8 @@ const NewsCard = ({ news }) => {
               <span>{total_view}</span>
             </div>
           </div>
-        </Link>
+          </div>
+          </Link>
       </div>
     </div>
   );
