@@ -3,7 +3,8 @@ import { Link } from "react-router";
 import { AuthContext } from "../Context/AuthProvider";
 
 const Register = () => {
-  const { createUser, setUser } = useContext(AuthContext);
+  
+  const { createUser, setUser, updateUser } = useContext(AuthContext); // AuthContext
   
   const [nameError, setNameError] = useState('')
 
@@ -27,7 +28,18 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        setUser(user);
+        updateUser({ displayName: name, PhotoURL: photo, }).then(() => {
+          
+          setUser({ ...user, displayName: name, PhotoURL: photo });
+          
+          
+        })
+        .catch((error) => {
+        console.log(error);
+          setUser(user);
+});
+        
+        
         console.log(user);
       })
       .catch((error) => {
@@ -65,7 +77,7 @@ const Register = () => {
               <label className="label">Photo URL</label>
               <input
                 name="photo"
-                type="text"
+                type="url"
                 className="input"
                 placeholder="Photo URL"
               />
