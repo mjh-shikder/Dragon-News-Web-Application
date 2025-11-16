@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router";
 
 const NewsDetailsCard = ({ news }) => {
-  console.log(news);
+  // console.log(news);
 
   const {details, title, image_url, category_id } = news;
 
