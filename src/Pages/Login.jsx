@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthProvider";
 
 const Login = () => {
+  const [error, setError] =useState("") // empty string is a falsy value
   const { signin } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate()
@@ -23,8 +24,9 @@ const Login = () => {
       })
       .catch((error) => {
         const errorCode = error.code;
-        const errorMessage = error.message;
-        alert(errorCode, errorMessage);
+        // const errorMessage = error.message;
+        // alert(errorCode, errorMessage);
+        setError(errorCode)
       });
   };
 
@@ -44,6 +46,7 @@ const Login = () => {
                 type="email"
                 className="input"
                 placeholder="Email"
+                required
               />
               {/* password */}
               <label className="label">Password</label>
@@ -52,13 +55,16 @@ const Login = () => {
                 type="password"
                 className="input"
                 placeholder="Password"
+                required
               />
               <div>
                 <a className="link link-hover">Forgot password?</a>
               </div>
+             
               <button type="submit" className="btn btn-neutral mt-4">
                 Login
               </button>
+               {error && <p className="text-secondary mt-2.5 ">{error}</p>}
               <p className="text-center font-light pt-5 ">
                 Don't Have an Accout? Then
                 <Link
