@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthProvider";
 
 const Register = () => {
@@ -8,6 +8,9 @@ const Register = () => {
   
   const [nameError, setNameError] = useState('')
 
+const navigation = useNavigate()
+
+  // Handle Register Onclick
   const handleRegisiter = (e) => {
     e.preventDefault();
 
@@ -24,14 +27,14 @@ const Register = () => {
     const photo = form.photo.value;
     const password = form.password.value;
     console.log(name, email, photo, password);
-
+// Create New User
     createUser(email, password)
       .then((result) => {
         const user = result.user;
         updateUser({ displayName: name, PhotoURL: photo, }).then(() => {
           
           setUser({ ...user, displayName: name, PhotoURL: photo });
-          
+          navigation('/')
           
         })
         .catch((error) => {

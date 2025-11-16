@@ -32,7 +32,7 @@ const Navbar = () => {
       </div>
       <div className="login-btn flex flex-col space-x-3 items-center">
         <div className="flex gap-5 ">
-          <img className="w-7 rounded-full" src={`${user ? user.photoURL : profileIcon}`} alt="" />
+          <img className="w-10 rounded-full" src={`${user ? user.photoURL : profileIcon}`} alt="" />
           {user ? (
             <button
               onClick={handleLogout}
