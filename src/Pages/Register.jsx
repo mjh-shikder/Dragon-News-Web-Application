@@ -80,7 +80,7 @@ const navigation = useNavigate()
               <label className="label">Photo URL</label>
               <input
                 name="photo"
-                type="url"
+                type="text"
                 className="input"
                 placeholder="Photo URL"
               />
