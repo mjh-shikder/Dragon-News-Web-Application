@@ -26,7 +26,7 @@ const navigation = useNavigate()
     const email = form.email.value;
     const photo = form.photo.value;
     const password = form.password.value;
-    console.log(name, email, photo, password);
+    // console.log(name, email, photo, password);
 // Create New User
     createUser(email, password)
       .then((result) => {
@@ -43,7 +43,7 @@ const navigation = useNavigate()
 });
         
         
-        console.log(user);
+        // console.log(user);
       })
       .catch((error) => {
         alert(error);

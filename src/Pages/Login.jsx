@@ -14,12 +14,12 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log({ email, password });
+    // console.log({ email, password });
 
     signin(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // console.log(user);
         navigate(`${location.state? location.state : '/'}`) // Redirecting user after login
       })
       .catch((error) => {

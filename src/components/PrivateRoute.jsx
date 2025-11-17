@@ -9,7 +9,7 @@ const PrivateRoute = ({ children }) => {
 
     // to find users current location to redirect after login
     const location = useLocation();
-    console.log(location);
+    // console.log(location);
     
 
     if (loading) {
